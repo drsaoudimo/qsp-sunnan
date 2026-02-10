@@ -10,8 +10,10 @@
     <style>
       body {
         font-family: 'Amiri', serif;
-        background-color: #0f172a;
+        background-color: #0b1121;
         color: #e2e8f0;
+        margin: 0;
+        padding: 0;
       }
       .font-mono {
         font-family: 'JetBrains Mono', monospace;
@@ -21,14 +23,14 @@
         width: 8px;
       }
       ::-webkit-scrollbar-track {
-        background: #1e293b; 
+        background: #0f172a; 
       }
       ::-webkit-scrollbar-thumb {
-        background: #475569; 
+        background: #1e293b; 
         border-radius: 4px;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #64748b; 
+        background: #334155; 
       }
 
       /* Custom Animations */
@@ -37,7 +39,6 @@
         to { opacity: 1; transform: translateY(0); }
       }
       .animate-fadeInUp {
-        opacity: 0; /* Start hidden */
         animation: fadeInUp 0.7s ease-out forwards;
       }
 
@@ -46,7 +47,6 @@
         to { opacity: 1; }
       }
       .animate-fadeIn {
-        opacity: 0;
         animation: fadeIn 0.5s ease-out forwards;
       }
 
@@ -55,24 +55,42 @@
         to { opacity: 1; transform: scale(1); }
       }
       .animate-zoomIn {
-        opacity: 0;
         animation: zoomIn 0.5s ease-out forwards;
       }
+
+      /* Custom Scrollbar for Article */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: #0b1121;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #1e293b;
+        border-radius: 10px;
+        border: 2px solid #0b1121;
+      }
     </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
+    "react": "https://esm.sh/react@19.0.0",
+    "react-dom": "https://esm.sh/react-dom@19.0.0",
+    "react-dom/client": "https://esm.sh/react-dom@19.0.0/client",
+    "recharts": "https://esm.sh/recharts@3.7.0",
+    "lucide-react": "https://esm.sh/lucide-react@0.463.0",
+    "@google/genai": "https://esm.sh/@google/genai@1.40.0",
+    "vite": "https://esm.sh/vite@^7.3.1",
+    "@vitejs/plugin-react": "https://esm.sh/@vitejs/plugin-react@^5.1.4",
     "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
-    "recharts": "https://esm.sh/recharts@^3.7.0",
-    "lucide-react": "https://esm.sh/lucide-react@^0.563.0",
-    "react/": "https://esm.sh/react@^19.2.4/",
-    "react": "https://esm.sh/react@^19.2.4",
-    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+    "react/": "https://esm.sh/react@^19.2.4/"
   }
 }
 </script>
-</head>
+  </head>
   <body>
     <div id="root"></div>
+    <!-- الوسم الضروري لتشغيل التطبيق وحل مشكلة الشاشة السوداء -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>

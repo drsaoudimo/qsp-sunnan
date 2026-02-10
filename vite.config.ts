@@ -6,18 +6,22 @@ export default defineConfig({
   plugins: [react()],
   build: {
     outDir: 'dist',
-    sourcemap: true,
+    assetsDir: 'assets',
+    sourcemap: false,
     minify: 'terser',
     rollupOptions: {
-      output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'recharts', 'lucide-react'],
-        },
+      input: {
+        main: './index.html',
       },
-    },
+      output: {
+        entryFileNames: `assets/[name].js`,
+        chunkFileNames: `assets/[name].js`,
+        assetFileNames: `assets/[name].[ext]`
+      }
+    }
   },
   server: {
     port: 3000,
-    open: true,
-  },
+    host: true
+  }
 });
